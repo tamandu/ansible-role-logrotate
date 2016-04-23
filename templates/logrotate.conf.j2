@@ -1,0 +1,36 @@
+{% for logfile in item.logfile %}
+{{ logfile }}
+{% endfor %}
+{
+{% for option in item.option %}
+    {{ option }}
+{% endfor -%}
+{% if item.firstaction is defined %}
+    firstaction
+    {% for script in item.firstaction %}
+    {{ script }}
+    {% endfor -%}
+    endscript
+{% endif %}
+{% if item.prerotate is defined %}
+    prerotate
+    {% for script in item.prerotate %}
+    {{ script }}
+    {% endfor -%}
+    endscript
+{% endif %}
+{% if item.postrotate is defined %}
+    postrotate
+    {% for script in item.postrotate %}
+    {{ script }}
+    {% endfor -%}
+    endscript
+{% endif %}
+{% if item.lastaction is defined %}
+    lastaction
+    {% for script in item.lastaction %}
+    {{ script }}
+    {% endfor -%}
+    endscript
+{% endif %}
+}

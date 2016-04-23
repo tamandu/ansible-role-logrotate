@@ -1,0 +1,4 @@
+---
+- name: copy logrotate conf to /etc/logrotate.d
+  template: src=logrotate.conf.j2 dest=/etc/logrotate.d/{{ item.name }}
+  with_items: "{{ logrotate | default([]) }}"
